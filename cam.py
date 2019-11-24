@@ -148,7 +148,6 @@ if __name__ == '__main__':
 	img_ori = transforms.Resize((896, 896))(img)
 
 	mask = grad_cam(input, index=None)
-
 	img_cv2 = cv2.cvtColor(np.array(img_ori), cv2.COLOR_RGB2BGR)
 	show_cam_on_image(img_cv2, mask)
 
