@@ -104,9 +104,10 @@ class GradCam:
 
 		self.model.zero_grad()
 		one_hot.backward(retain_graph=True)
-
+		# grads_val 即为保存的梯度值list
 		grads_val = self.extractor.get_gradients()[-1].cpu().data.numpy()
 
+		# 如果只关心梯度值，下面的可以跳过
 		target = features[-1]
 		target = target.cpu().data.numpy()[0, :]
 
